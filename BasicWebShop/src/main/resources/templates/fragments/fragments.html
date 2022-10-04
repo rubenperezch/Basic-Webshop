@@ -1,0 +1,74 @@
+<div th:fragment="buttons">
+    <table>
+        <tr2>
+            <th>
+                <div class="button">
+                    <form th:action = "@{/only-available}" action = "#" method = "get">
+                        <input type = "submit" value="Only Available">
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div class="button">
+                    <form th:action = "@{/cheapest-first}" action = "#" method = "get">
+                        <input type = "submit" value="Cheapest First">
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div class="button">
+                    <form th:action = "@{/contains-fender}" action = "#" method = "get">
+                        <input type = "submit" value="Fender Items">
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div class="button">
+                    <form th:action = "@{/average-stock}" action = "#" method = "get">
+                        <input type = "submit" value="Average Stock">
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div class="button">
+                    <form th:action ="@{/most-expensive-available}" action = "#" method = "get">
+                        <input type = "submit" value="Most Expensive Available">
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div class="button">
+                    <form th:action = "@{/}" action = "#" method = "get">
+                        <input type = "submit" value="Clear Filters">
+                    </form>
+                </div>
+            </th>
+        </tr2>
+    </table>
+</div>
+
+<div th:fragment="search-bar">
+    <form th:action = "@{/search}" action = "#" method = "post">
+        <input type="text" placeholder="...like guitar" name="search">
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+<div th:fragment="lists">
+    <table>
+        <tr>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+        <tr th:each="shopItem : ${items}">
+            <td th:text="${shopItem.getBrand()}"></td>
+            <td th:text="${shopItem.getType()}"></td>
+            <td th:text="${shopItem.getModel()}"></td>
+            <td th:text="'£'+${shopItem.getPrice()}"></td>
+            <td th:text="${shopItem.getStock()}"></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ruben's Guitar Shop</title>
+    <link rel = "stylesheet" th:href = "@{/style.css}">
+    <h1>RUBEN'S GUITAR SHOP</h1>
+</head>
+<body>
+    <div th:replace="fragments/fragments :: buttons"></div>
+    <div th:replace="fragments/fragments :: search-bar"></div>
+
+    <div>
+    <h3 th:text="'AVERAGE STOCK: ' + ${#numbers.formatDecimal(average,0,2)} + ' Items'"></h3>
+    </div>
+</body>
+</html>
